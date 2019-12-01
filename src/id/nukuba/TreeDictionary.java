@@ -5,6 +5,12 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+/**
+ *
+ *
+ * @author Bagus Jatikusuma
+ *
+ */
 public class TreeDictionary {
     private Map<String, TreeNode> roots;
 
@@ -14,6 +20,57 @@ public class TreeDictionary {
 
     public void addTreeNode( TreeNode nodeRoot ) {
         roots.put(nodeRoot.getKey(), nodeRoot);
+    }
+
+    /**
+     *
+     *
+     *
+     * @param word
+     */
+    public void addNode( String word ) {
+
+        TreeNode node = roots.get( word.substring(0,1) );
+
+        if ( node == null ) {
+            node = new TreeNode(word.substring(0, 1), new HashMap<>(), word.length() == 1);
+            roots.put( word.substring( 0, 1), node );
+        }
+
+        if ( word.length() > 1 )
+            addNode( node, word.substring( 1, word.length() ) );
+
+    }
+
+    /**
+     *
+     *
+     *
+     * @param node
+     * @param word
+     */
+    private void addNode( TreeNode node, String word ) {
+
+        String key = word.substring(0,1);
+        TreeNode nodeTemp = node.getChildNode().get( key );
+
+        if ( nodeTemp != null ) {
+            if ( word.length() > 1)
+                addNode( nodeTemp, word.substring( 1, word.length() ) );
+        }
+        else {
+            nodeTemp = new TreeNode(
+                    key,
+                    new HashMap<>(),
+                    word.length() == 1 );
+            node.getChildNode().put(
+                    key,
+                    nodeTemp );
+
+            if ( word.length() > 1)
+                addNode( nodeTemp, word.substring( 1, word.length() ) );
+        }
+
     }
 
     /**
@@ -50,7 +107,6 @@ public class TreeDictionary {
 
         if ( word.length() > 1 ) {
             if ( previousNode.getChildNode().get(word.substring(1, 2)) != null ) {
-                System.out.println(previousNode.getKey());
                 return getStartingNode(
                             word.substring(1, word.length()),
                             previousNode.getChildNode().get(word.substring(1, 2)));
@@ -73,6 +129,7 @@ public class TreeDictionary {
      * @<code>node</code> is used for testing only
      *
      * @param word
+     * @return list of word
      */
     public List<String> traverseWord( String word ) {
 
@@ -81,8 +138,6 @@ public class TreeDictionary {
         //get the starting node
         TreeNode node = roots.get( word.substring( 0, 1 ) );
         node = getStartingNode( word, node );
-
-        System.out.println(word + " : " +node.getKey());
 
         if ( node != null ) {
             traverseNode( node, word, wordAvailable );
