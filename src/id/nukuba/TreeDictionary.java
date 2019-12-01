@@ -43,7 +43,7 @@ public class TreeDictionary {
     public void traverseNode( String word ) {
         //get first letter of word
         TreeNode node = roots.get( word.substring( 0, 1 ) );
-        
+
         if ( node != null ) {
             node.getChildNode()
                     .forEach((s, tn) -> {
