@@ -95,12 +95,16 @@ public class TreeDictionaryMap implements TreeDictionary {
      * @return
      */
     private TreeNode getStartingNode( String word, TreeNode previousNode ) {
-
         if ( word.length() > 1 ) {
+            //if found
             if ( previousNode.getChildNode().get(word.substring(1, 2)) != null ) {
                 return getStartingNode(
                             word.substring(1, word.length()),
                             previousNode.getChildNode().get(word.substring(1, 2)));
+            }
+            //if not found
+            else {
+                return null;
             }
 
         }

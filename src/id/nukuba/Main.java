@@ -12,8 +12,9 @@ public class Main {
         TreeDictionary treeDictionary = new TreeDictionaryMap();
         treeDictionary.addNode("bandung");
         treeDictionary.addNode( "balik papan" );
+        treeDictionary.addNode( "Banjarmasin" );
 
-        System.out.println( treeDictionary.traverseWord("ba") );
+        System.out.println( treeDictionary.traverseWord("A") );
 
     }
 }
