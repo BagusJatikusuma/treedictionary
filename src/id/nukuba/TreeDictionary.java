@@ -7,6 +7,8 @@ import java.util.Map;
 
 /**
  *
+ * Word Dictionary used of autocomplete task
+ * use HashMap for word collection and custom TRIE structure to get the words
  *
  * @author Bagus Jatikusuma
  *
@@ -24,7 +26,7 @@ public class TreeDictionary {
 
     /**
      *
-     *
+     * add word to dictionary
      *
      * @param word
      */
@@ -44,7 +46,7 @@ public class TreeDictionary {
 
     /**
      *
-     *
+     * create node and link it with its childs to build the tree of words
      *
      * @param node
      * @param word
