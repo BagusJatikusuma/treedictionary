@@ -14,7 +14,7 @@ public class Main {
         treeDictionary.addNode( "balik papan" );
         treeDictionary.addNode( "Banjarmasin" );
 
-        System.out.println( treeDictionary.traverseWord("A") );
+        System.out.println( treeDictionary.traverseWord("Banjara") );
 
     }
 }

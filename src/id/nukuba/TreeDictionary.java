@@ -12,7 +12,7 @@ public interface TreeDictionary {
      *
      * @param word
      */
-    void addNode( String word );
+    void addWord( String word );
 
     /**
      * this method is used to retrieve data/word in dictionary

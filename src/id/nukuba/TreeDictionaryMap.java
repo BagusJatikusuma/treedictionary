@@ -19,7 +19,7 @@ public class TreeDictionaryMap implements TreeDictionary {
         roots = new HashMap<>();
     }
 
-    public void addNode( String word ) {
+    public void addWord( String word ) {
 
         TreeNode node = roots.get( word.substring(0,1) );
 
