@@ -1,9 +1,7 @@
 package id.nukuba;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 public class Main {
 
@@ -11,11 +9,10 @@ public class Main {
         System.out.println("Hello world");
 
         //add tree to Dictionary
-        TreeDictionary treeDictionary = new TreeDictionary();
+        TreeDictionary treeDictionary = new TreeDictionaryMap();
         treeDictionary.addNode("bandung");
         treeDictionary.addNode( "balik papan" );
 
-        List<String> wordAvailable = new ArrayList<>();
         System.out.println( treeDictionary.traverseWord("ba") );
 
     }
